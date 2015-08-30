@@ -49,7 +49,7 @@
             <select>
                 <?php 
                 for ($i = 0; $i <= 11; $i++) {
-                    echo '<option>' . $i . ' months</option>'
+                    echo '<option>' . $i . ' months</option>';
                 }
                 ?>
             </select>
