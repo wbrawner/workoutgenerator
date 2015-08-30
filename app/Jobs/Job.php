@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Jobs;
+namespace WorkoutGenerator\Jobs;
 
 use Illuminate\Bus\Queueable;
 

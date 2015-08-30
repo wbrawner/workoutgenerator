@@ -1,5 +1,5 @@
 suites:
     main:
-        namespace: App
-        psr4_prefix: App
+        namespace: WorkoutGenerator
+        psr4_prefix: WorkoutGenerator
         src_path: app

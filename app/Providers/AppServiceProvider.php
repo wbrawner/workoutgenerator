@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace WorkoutGenerator\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
