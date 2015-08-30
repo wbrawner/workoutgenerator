@@ -2,6 +2,7 @@
     <head>
         <title>Workout Generator - @yield('title')</title>
         <link rel="stylesheet" href={{ asset('assets/css/styles.css') }}>
+        <meta name="viewport" content="width=deice-width, initial-scale=1">
     </head>
     <body>
         @section('header')
