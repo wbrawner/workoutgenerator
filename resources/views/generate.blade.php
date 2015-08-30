@@ -42,9 +42,16 @@
             <br />
             <br />
             <select>
-                <option>0-6 months</option>
-                <option>6 months - 2 years</option>
-                <option>2 or more years</option>
+                <option>0 years</option>
+                <option>1 year</option>
+                <option>2+ years</option>
+            </select>
+            <select>
+                <?php 
+                for ($i = 0; $i <= 11; $i++) {
+                    echo '<option>' . $i . ' months</option>'
+                }
+                ?>
             </select>
             <br />
             <br />
