@@ -14,7 +14,7 @@
                     <div id=nav>
                         <ul>
                             <a href="/"><li>Home</li></a> |
-                            <a href="/about"><li>About</li></a> |
+                            <!--<a href="/about"><li>About</li></a> |-->
                             <a href="/generate"><li>Generate</li></a>
                         </ul>
                     </div>

@@ -6,10 +6,10 @@
 
 @section('content')
 <div class="content">
-    <h2>Stuck in a rut? Just getting started? Getting bored of your routine? We've got you covered.
-    <br />
-    <br />
-    With the workout generator provided exclusively by Fitness 1440, you can take your workouts to the next level. You give us your goals, your preferences, and your experience level and we'll give you a new workout as often as you like.
-    </h2>
+	<div class="banner">
+	    <img src={{ asset('assets/images/banner.jpg') }} class="banner">
+    	<h1 class="banner_text">Need help with your workouts? We've got you covered.<br />
+    		<a href='/generate'><button>Generate My Workout</button></a></h1>
+    </div>
 </div>
 @endsection

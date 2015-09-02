@@ -27,6 +27,43 @@ body {
     display:inline-block;
 }
 
+.banner {
+    position:relative;
+    width:100%;
+    display:block;
+}
+
+.banner img {
+    width:100%;
+    height:auto;
+}
+
+.banner h1 {
+    background-color:rgba(0, 0, 0, 0.5) !important;
+    border-bottom:none !important;
+    color:#fff;
+    position:absolute;
+    width:100%;
+    max-width:100% !important;
+    margin:0 !important;
+    padding:5px 0 !important;
+    top:45%;
+    text-align:center;
+    display:block;
+    text-shadow:0px 0px 5px #000;
+}
+
+.banner button {
+    font-size: 20px;
+    color: #fff;
+    background-color:#87161a;
+    text-shadow:0px 0px 5px #000;
+    border:solid 1px #87161a;
+    border-radius:5px;
+    margin:10px;
+    cursor:pointer;
+}
+
 #nav {
     float:right;
     margin-right:5px;
@@ -94,7 +131,7 @@ fieldset {
     #nav {
         float:none;
         display:block;
-        width:290px
+        width:290px;
         margin:auto;
     }
 
