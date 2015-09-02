@@ -13,7 +13,7 @@
             <label>What is your primary goal?:</label>
             <br />
             <br />
-            <select>
+            <select name='goal'>
                 <option value="strength">Gain Strength</option>
                 <option value="endurance">Gain Endurance</option>
                 <option value="definition">Gain Definition</option>

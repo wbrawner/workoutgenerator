@@ -2,13 +2,15 @@
     <head>
         <title>Workout Generator - @yield('title')</title>
         <link rel="stylesheet" href={{ asset('assets/css/styles.css') }}>
-        <meta name="viewport" content="width=deice-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
         @section('header')
             <div class="header">
                 <div class="container">
-                    <a href="/"><img id="logo" src={{ asset('assets/images/logo.png') }} alt='Fitness 1440'></a>
+                    <div id=logo>
+                        <a href="/"><img src={{ asset('assets/images/logo.png') }} alt='Fitness 1440'></a>
+                    </div>
                     <div id=nav>
                         <ul>
                             <a href="/"><li>Home</li></a> |

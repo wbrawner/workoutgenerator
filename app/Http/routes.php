@@ -11,14 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', 'PagesController@index');
 
-Route::get('/about', function () {
-    return view('about');
-});
+Route::get('/about', 'PagesController@about');
 
-Route::get('/generate', function () {
-    return view('generate');
-});
+Route::get('/generate', 'PagesController@generate');
+
