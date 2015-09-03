@@ -35,9 +35,11 @@
     <div class="content-section">
     	<div class="content-box">
     		<h2>Still not convinced?</h2>
-	    	<p>Don't take our word for it, sign up and try it out today!<br />
-            <a href='/generate'><button class="home-button">Get Started</button></a></p>
+	    	<p>Don't take our word for it, sign up and try it out today!<br /></p>
 	    </div>
+        <div class="content-box">
+            <p><a href='/generate'><button class="home-button">Get Started</button></a></p>
+        </div>
     </div>
 </div>
 @endsection

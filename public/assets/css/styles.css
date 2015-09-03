@@ -139,10 +139,11 @@ body {
 }
 
 .content-box {
-    display:block;
-    margin:0;
+    display:inline-block;
+    margin:5px 0;
     padding:5px 0;
-    width:50%;
+    width:49%;
+    height:auto;
 }
 
 .content-box p {
