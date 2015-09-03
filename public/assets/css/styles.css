@@ -53,7 +53,7 @@ body {
     text-shadow:0px 0px 5px #000;
 }
 
-.banner button {
+.home-button {
     font-size: 20px;
     color: #fff;
     background-color:#87161a;
@@ -89,6 +89,7 @@ body {
     text-align:center;
 	padding:10px;
 	margin:0;
+    border-radius:5px;
 }
 
 #nav a:hover, a:active {
@@ -118,8 +119,34 @@ body {
 }
 
 .content h2 {
+    color:#87161a;
     margin:20px;
     text-align:center;
+}
+
+.content p {
+    margin:10px;
+}
+
+.content-section {
+    padding:5px 0;
+    margin:0;
+    display:block;
+    width:100%;
+    position:relative;
+    height:auto;
+    background-color:transparent;
+}
+
+.content-box {
+    display:block;
+    margin:0;
+    padding:5px 0;
+    width:50%;
+}
+
+.content-box p {
+    text-align: center;
 }
 
 fieldset {
@@ -153,5 +180,9 @@ fieldset {
     #nav a:link, a:visited {
         margin:0;
         padding:0;
+    }
+
+    .content-box {
+        width:100%;
     }
 }
