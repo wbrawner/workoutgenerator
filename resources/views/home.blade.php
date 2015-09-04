@@ -21,9 +21,8 @@
         	custom exercises to make your experience even more personalized.</p>
         </div>
     </div>
-    <br style="clear:both;"/>
     <div class="content-section">
-    	<div class="content-box" style="float:right;">
+    	<div class="content-box">
     		<h2>Why random generation?</h2>
 	    	<p>One of the primary pillars of fitness is <b>periodization</b>. Studies have shown that after about 2-3 weeks, 
 	    	your body begins to adapt to the challenges you give it, which means you'll still be putting in the work 
@@ -31,15 +30,13 @@
 	    	routine to prevent you from adapting to it. Say goodbye to plateaus!</p>
 	    </div>
     </div>
-    <br style="clear:both;"/>
     <div class="content-section">
     	<div class="content-box">
     		<h2>Still not convinced?</h2>
-	    	<p>Don't take our word for it, sign up and try it out today!<br /></p>
-	    </div>
-        <div class="content-box">
+	    	<p>Don't take our word for it, sign up and try it out today!</p>
             <p><a href='/generate'><button class="home-button">Get Started</button></a></p>
         </div>
     </div>
+    <br style="clear:both;" />
 </div>
 @endsection
