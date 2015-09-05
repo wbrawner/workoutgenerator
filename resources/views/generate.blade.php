@@ -26,32 +26,32 @@
                     <label>Which of the following equipment/exercise styles do you have access to and enjoy doing? Check all that apply:</label>
                     <br />
                     <br />
-                    <input type="checkbox" id="free-weights" value="free-weights" onClick="control()">Free Weights
+                    <input type="checkbox" name="free-weights" id="free-weights" value="free-weights" onClick="control()">Free Weights
                     <br />
-                    <input type="checkbox" id="dumbbells" value="dumbbells" disabled><span class="dtext">Dumbbells</span>
+                    <input type="checkbox" name="dumbbells" id="dumbbells" value="dumbbells" disabled><span class="dtext">Dumbbells</span>
                     <br />
-                    <input type="checkbox" id="barbells" value="barbells" disabled><span class="dtext">Barbells</span>
+                    <input type="checkbox" name="barbells" id="barbells" value="barbells" disabled><span class="dtext">Barbells</span>
                     <br />
-                    <input type="checkbox" value="selectorized">Selectorized Equipment
+                    <input type="checkbox" name="selectorized" value="selectorized">Selectorized Equipment
                     <br />
-                    <input type="checkbox" value="cables">Cable Equipment
+                    <input type="checkbox" name="cables" value="cables">Cable Equipment
                     <br />
-                    <input type="checkbox" value="calisthenics">Calisthenics
+                    <input type="checkbox" name="calisthenics" value="calisthenics">Calisthenics
                     <br />
                     <br />
                     <br />
                     <label>How long have you consistently followed an exercise routine?</label>
                     <br />
                     <br />
-                    <select>
-                        <option>0 years</option>
-                        <option>1 year</option>
-                        <option>2+ years</option>
+                    <select name="years">
+                        <option value="0">0 years</option>
+                        <option value="1">1 year</option>
+                        <option value="2">2+ years</option>
                     </select>
-                    <select>
+                    <select name="months">
                         <?php 
                         for ($i = 0; $i <= 11; $i++) {
-                            echo '<option>' . $i . ' months</option>';
+                            echo '<option value="{$i}">' . $i . ' months</option>';
                         }
                         ?>
                     </select>
@@ -61,16 +61,16 @@
                     <label>How many days would you like to workout this week?</label>
                     <br />
                     <br />
-                    <select>
+                    <select name="frequency">
                         <?php
                         for ($i = 1; $i <= 6; $i++) {
-                            echo '<option>' . $i . '</option>';
+                            echo '<option value="{$i}">' . $i . '</option>';
                         }
                         ?>
                     </select>
                     <br />
                     <br />
-                    <button name="" class="home-button">Generate My Workout!</button>
+                    <button name="submit" class="home-button">Generate My Workout!</button>
                 </fieldset>
             </form>
         </div>
