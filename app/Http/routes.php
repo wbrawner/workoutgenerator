@@ -17,3 +17,8 @@ Route::get('/about', 'PagesController@about');
 
 Route::get('/generate', 'PagesController@generate');
 
+Route::get('/exercises', 'ExercisesController@index');
+
+Route::get('/exercises/create', 'ExercisesController@create');
+
+Route::post('/generate/workout', 'GeneratorController@generate');

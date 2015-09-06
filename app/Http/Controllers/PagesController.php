@@ -26,7 +26,7 @@ class PagesController extends Controller
 
     public function generate()
     {
-        return view('generate');
+        return view('generator/generate');
     }
 
     /**

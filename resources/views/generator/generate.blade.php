@@ -33,7 +33,7 @@
                     <br />
                     <input type="checkbox" name="selectorized" value="selectorized">Selectorized Equipment
                     <br />
-                    <input type="checkbox" name="cable" value="cable">Cable Equipment
+                    <input type="checkbox" name="cables" value="cables">Cable Equipment
                     <br />
                     <input type="checkbox" name="calisthenics" value="calisthenics">Calisthenics
                     <br />
