@@ -14,7 +14,8 @@
                     <label>What is your primary goal?:</label>
                     <br />
                     <br />
-                    <select name='goal'>
+                    <select name='goal' required>
+                        <option value="" disabled selected>Select Your Goal:</option>
                         <option value="strength">Gain Strength</option>
                         <option value="endurance">Gain Endurance</option>
                         <option value="definition">Gain Definition</option>
@@ -42,15 +43,17 @@
                     <label>How long have you consistently followed an exercise routine?</label>
                     <br />
                     <br />
-                    <select name="years">
-                        <option value="0">0 years</option>
-                        <option value="1">1 year</option>
-                        <option value="2">2+ years</option>
+                    <select name="years" required>
+                        <option value="" disabled selected>Years:</option>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
                     </select>
-                    <select name="months">
+                    <select name="months" required>
+                        <option value="" disabled selected>Months:</option>
                         <?php 
                         for ($i = 0; $i <= 11; $i++) {
-                            echo "<option value=\"{$i}\">{$i} months</option>";
+                            echo "<option value=\"{$i}\">{$i}</option>";
                         }
                         ?>
                     </select>
@@ -60,7 +63,8 @@
                     <label>How many days would you like to workout this week?</label>
                     <br />
                     <br />
-                    <select name="frequency">
+                    <select name="frequency" required>
+                        <option value="" disabled selected>Days per Week:</option>
                         <?php
                         for ($i = 1; $i <= 6; $i++) {
                             echo "<option value=\"{$i}\">{$i}</option>";
