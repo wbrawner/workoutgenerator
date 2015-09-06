@@ -254,3 +254,9 @@ body {
         margin:0;
     }
 }
+
+@media (max-width: 502px) {
+    .banner h1 {
+        position:static;
+    }
+}
