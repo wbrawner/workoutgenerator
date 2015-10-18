@@ -53,6 +53,15 @@ class GeneratorController extends Controller
             foreach (array_keys($preferences, '') as $key) {
                 unset($preferences[$key]);
             };
+            global $chestExercises;
+            global $backExercises;
+            global $legsExercises;
+            global $lowerLegsExercises;
+            global $bicepsExercises;
+            global $tricepsExercises;
+            global $shouldersExercises;
+            global $forearmsExercises;
+            global $absExercises;
             $chestExercises = [];
             $backExercises = [];
             $legsExercises = [];
@@ -62,7 +71,6 @@ class GeneratorController extends Controller
             $shouldersExercises = [];
             $forearmsExercises = [];
             $absExercises = [];
-            #$Exercises = [];
             function getExercises($muscle, $preference) {           
                 $exercises = DB::table('exercises')
                             ->where('exercise_type', $preference)
@@ -82,9 +90,28 @@ class GeneratorController extends Controller
                 $absExercises = array_merge($absExercises, getExercises('abs', $preference));
             };
         };
-        $cardio = DB::table('exercises')
+        global $cardioExercises;
+        $cardioExercises = DB::table('exercises')
                         ->where('exercise_type', 'cardio')
                         ->lists('exercise_name');
+        function getExerciseLists($muscle, $numberOfExercises) {
+            global ${"$muscle" . "Exercises"};
+            $shuffled = ${"$muscle" . "Exercises"};
+            shuffle($shuffled);
+            return array_slice($shuffled, 0, $numberOfExercises);
+        };
+        function getDay($title, $largeMuscles, $largeMuscleExercises, $smallMuscles = [], $smallMuscleExercises = 0) {
+            $listOfExercises = [];
+            foreach ($largeMuscles as $largeMuscle) {
+                $listOfExercises = array_merge($listOfExercises, getExerciseLists($largeMuscle, $largeMuscleExercises));
+            };
+            foreach ($smallMuscles as $smallMuscle) {
+                $listOfExercises = array_merge($listOfExercises, getExerciseLists($smallMuscle, $smallMuscleExercises));
+            };
+            return ['name' => $title . ' Day',
+                'exercises' => $listOfExercises
+                ];
+        };
         $years = intval(Request::get('years'));
         $months = intval(Request::get('months'));
         $frequency = intval(Request::get('frequency'));
@@ -92,68 +119,62 @@ class GeneratorController extends Controller
         switch ($total) {
             case ($total >= 24):
                 $experience = "Advanced";
+                global $days;
+                $days = [];
+                for ($i = 0; $i < $frequency; $i++) {
+                    $days[] = getDay("Full Body", ["chest", "back", "legs"], 1, ["biceps", "triceps", "shoulders", "forearms", "lowerLegs", "abs"], 1);
+                };
                 break;
             case ($total > 6):
                 $experience = "Intermediate";
+                global $days;
+                $days = [];
+                $workout = intval($frequency / 2);
+                $cardio = ($frequency % 2) * $workout;
+                if ($frequency == 1) {
+                    $days[] = getDay("Cardio Day", ["cardio"], 4);
+                } else if ($frequency < 5) {
+                    for ($i = 0; $i < $workout; $i++) {
+                        $days[] = getDay("Upper Body Day", ["chest", "back"], 1, ["biceps", "triceps", "shoulders", "forearms"], 1);
+                        $days[] = getDay("Lower Body Day", ["legs"], 2, ["lowerLegs", "abs"], 1);                        
+                    }
+                    for ($i = 0; $i < $cardio; $i++) {
+                        $days[] = getDay("Cardio Day", ["cardio"], 4);
+                    }
+                } else {
+                    for ($i = 0; $i < 2; $i++) {
+                        $days[] = getDay("Upper Body Day", ["chest", "back"], 1, ["biceps", "triceps", "shoulders", "forearms"], 1);
+                        $days[] = getDay("Lower Body Day", ["legs"], 2, ["lowerLegs", "abs"], 1); 
+                    }
+                    for ($i = 0; $i < ($frequency - 4); $i++) {
+                        $days[] = getDay("Cardio Day", ["cardio"], 4);
+                    }
+                }
                 break;
             default:
+                global $days;
+                $days = [];
                 $experience = "Beginner";
-                $largeMuscleExercises = 1;
-                $smallMuscleExercises = 1;
-                $headers = ["Full Body Day"];
-        };
-        function fullBodyDay () {
-
-        };
-        function upperBodyDay () {
-
-        };
-        function lowerBodyDay () {
-
-        };
-        function chestDay ($frequency, $largeMuscleExercises, $smallMuscleExercises) {
-
-        };
-        function backDay () {
-
-        };
-        function legDay () {
-
-        };
-        function armDay () {
-
-        };
-        function createWorkout () {
-
-        }
-        $listsOfExercises = [
-            $chestExercises,
-            $backExercises,
-            $legsExercises,
-            $lowerLegsExercises,
-            $bicepsExercises,
-            $tricepsExercises,
-            $shouldersExercises,
-            $forearmsExercises,
-            $absExercises,
-            $cardio
-        ];
-        for ($i = 0; $i < count($listsOfExercises); $i++) {
-            shuffle($listsOfExercises[$i]);
-        };
-        for ($i = 0; $i < 3; $i++) {
-            $listsOfExercises[$i] = array_slice($listsOfExercises[$i], 0, $largeMuscleExercises);
-        };
-        for ($i = 3; $i < count($listsOfExercises); $i++) {
-            $listsOfExercises[$i] = array_slice($listsOfExercises[$i], 0, $smallMuscleExercises);
+                for ($i = 0; $i < $frequency; $i++) {
+                    if ($i % 2 == 0) {
+                        if (count($cardioExercises) > 0) {
+                            $days[] = getDay("Cardio Day", ["cardio"], 4);
+                        } else {
+                            $days[] = getDay("Full Body", ["chest", "back", "legs"], 1, ["biceps", "triceps", "shoulders", "forearms", "lowerLegs", "abs"], 1);
+                        }
+                    } else {
+                        $days[] = getDay("Full Body", ["chest", "back", "legs"], 1, ["biceps", "triceps", "shoulders", "forearms", "lowerLegs", "abs"], 1);
+                    }
+                };
         };
         return view('generator/workout', [
             'goal' => ucfirst($goal),
             'preferences' => implode(', ', $preferences),
             'experience' => $experience,
             'frequency' => $frequency,
-            'listsOfExercises' => $listsOfExercises,
-            'headers' => $headers
+            'days' => $days,
+            'sets' => $sets,
+            'reps' => $reps
             ]);
     }
 }

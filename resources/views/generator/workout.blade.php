@@ -9,21 +9,19 @@
 	<h1>{{ $goal }} - {{ $experience }} - {{ $frequency }} Day Split</h1>
 	<br style="clear:both;" />
 	<p style="text-align:center;">This part is still under development, but check back soon!</p>
-	
-	@for ($i = 0; $i < $frequency; $i++)
+	@foreach ($days as $day)
 	<table class="workout">
-		<h2>{{ $headers[$i] }}</h2>
+		<h2>{{ $day['name'] }}</h2>
 		<th>Exercise</th>
 		<th>Sets:</th>
 		<th>Reps:</th>
-		@for ($i = 0; $i < count)
+		@foreach ($day['exercises'] as $exercise)
 		<tr>
-			<td>{{ $goal }}</td>
-			<td>{{ $preferences }}</td>
-			<td>{{ $experience }}</td>
-			<td>{{ $frequency }} days per week</td>
+			<td>{{ $exercise }}</td>
+			<td>{{ $sets }}</td>
+			<td>{{ $reps }}</td>
 		</tr>
+		@endforeach
 	</table>
-	@endfor 
-</div>
+	@endforeach
 @endsection
