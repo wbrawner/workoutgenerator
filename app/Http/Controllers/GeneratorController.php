@@ -121,9 +121,24 @@ class GeneratorController extends Controller
                 $experience = "Advanced";
                 global $days;
                 $days = [];
-                for ($i = 0; $i < $frequency; $i++) {
+                if ($frequency == 1) {
                     $days[] = getDay("Full Body", ["chest", "back", "legs"], 1, ["biceps", "triceps", "shoulders", "forearms", "lowerLegs", "abs"], 1);
-                };
+                } else if ($frequency == 2) {
+                    $days[] = getDay("Upper Body", ["chest", "back"], 1, ["biceps", "triceps", "shoulders", "forearms"], 1);
+                    $days[] = getDay("Lower Body", ["legs"], 2, ["lowerLegs", "abs"], 1);
+                } else if ($frequency == 3) {
+                    $days[] = getDay("Chest", ["chest"], 3, ["triceps", "shoulders"], 2);
+                    $days[] = getDay("Back", ["back"], 3, ["biceps", "forearms"], 2);
+                    $days[] = getDay("Leg", ["legs"], 3, ["lowerLegs", "abs"], 2);
+                } else {
+                    $days[] = getDay("Chest", ["chest"], 3, ["triceps"], 2);
+                    $days[] = getDay("Back", ["back"], 3, ["biceps"], 2);
+                    $days[] = getDay("Leg", ["legs"], 3, ["lowerLegs"], 2);
+                    $days[] = getDay("Arm", ["shoulders", "forearms", "abs"], 3);
+                    for ($i = 0; $i < ($frequency - 4); $i++) {
+                        $days[] = getDay("Cardio", ["cardio"], 4);
+                    }
+                }                
                 break;
             case ($total > 6):
                 $experience = "Intermediate";
@@ -132,22 +147,22 @@ class GeneratorController extends Controller
                 $workout = intval($frequency / 2);
                 $cardio = ($frequency % 2) * $workout;
                 if ($frequency == 1) {
-                    $days[] = getDay("Cardio Day", ["cardio"], 4);
+                    $days[] = getDay("Cardio", ["cardio"], 4);
                 } else if ($frequency < 5) {
                     for ($i = 0; $i < $workout; $i++) {
-                        $days[] = getDay("Upper Body Day", ["chest", "back"], 1, ["biceps", "triceps", "shoulders", "forearms"], 1);
-                        $days[] = getDay("Lower Body Day", ["legs"], 2, ["lowerLegs", "abs"], 1);                        
+                        $days[] = getDay("Upper Body", ["chest", "back"], 1, ["biceps", "triceps", "shoulders", "forearms"], 1);
+                        $days[] = getDay("Lower Body", ["legs"], 2, ["lowerLegs", "abs"], 1);                        
                     }
                     for ($i = 0; $i < $cardio; $i++) {
-                        $days[] = getDay("Cardio Day", ["cardio"], 4);
+                        $days[] = getDay("Cardio", ["cardio"], 4);
                     }
                 } else {
                     for ($i = 0; $i < 2; $i++) {
-                        $days[] = getDay("Upper Body Day", ["chest", "back"], 1, ["biceps", "triceps", "shoulders", "forearms"], 1);
-                        $days[] = getDay("Lower Body Day", ["legs"], 2, ["lowerLegs", "abs"], 1); 
+                        $days[] = getDay("Upper Body", ["chest", "back"], 1, ["biceps", "triceps", "shoulders", "forearms"], 1);
+                        $days[] = getDay("Lower Body", ["legs"], 2, ["lowerLegs", "abs"], 1); 
                     }
                     for ($i = 0; $i < ($frequency - 4); $i++) {
-                        $days[] = getDay("Cardio Day", ["cardio"], 4);
+                        $days[] = getDay("Cardio", ["cardio"], 4);
                     }
                 }
                 break;
@@ -158,7 +173,7 @@ class GeneratorController extends Controller
                 for ($i = 0; $i < $frequency; $i++) {
                     if ($i % 2 == 0) {
                         if (count($cardioExercises) > 0) {
-                            $days[] = getDay("Cardio Day", ["cardio"], 4);
+                            $days[] = getDay("Cardio", ["cardio"], 4);
                         } else {
                             $days[] = getDay("Full Body", ["chest", "back", "legs"], 1, ["biceps", "triceps", "shoulders", "forearms", "lowerLegs", "abs"], 1);
                         }
