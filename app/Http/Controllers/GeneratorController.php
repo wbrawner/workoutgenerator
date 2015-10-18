@@ -41,14 +41,15 @@ class GeneratorController extends Controller
                 $sets = "3";
                 $reps = "10";
         };
-        $preferences = [
-            Request::get('free_weights'),
-            Request::get('dumbbells'),
-            Request::get('barbells'),
-            Request::get('selectorized'),
-            Request::get('cables'), 
-            Request::get('calisthenics')
-        ];
+        $preferences = ["free_weights", "dumbbells", "barbells", "selectorized", "cables", "calisthenics"];
+#        $preferences = [
+#            Request::get('free_weights'),
+#            Request::get('dumbbells'),
+#            Request::get('barbells'),
+#            Request::get('selectorized'),
+#            Request::get('cables'), 
+#            Request::get('calisthenics')
+#        ];
         if (isset($preferences)) {
             foreach (array_keys($preferences, '') as $key) {
                 unset($preferences[$key]);

@@ -23,7 +23,7 @@
                     <br />
                     <br />
                     <br />
-                    <label>Which of the following equipment/exercise styles do you have access to and enjoy doing? Check all that apply:</label>
+<!--                     <label>Which of the following equipment/exercise styles do you have access to and enjoy doing? Check all that apply:</label>
                     <br />
                     <br />
                     <input type="checkbox" name="free_weights" id="free-weights" value="free_weights" onClick="control()">Free Weights
@@ -39,7 +39,7 @@
                     <input type="checkbox" name="calisthenics" value="calisthenics">Calisthenics
                     <br />
                     <br />
-                    <br />
+                    <br /> -->
                     <label>How long have you consistently followed an exercise routine?</label>
                     <br />
                     <br />
