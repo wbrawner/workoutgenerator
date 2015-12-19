@@ -8,14 +8,14 @@
         @section('header')
             <div class="header">
                 <div class="container">
-                    <div id=logo>
+                    <div id="logo">
                         <a href="/"><img src={{ asset('assets/images/logo.png') }} alt='Fitness 1440'></a>
                     </div>
-                    <div id=nav>
+                    <div id="nav">
                         <ul>
-                            <a href="/"><li>Home</li></a> |
+                            <li><a href="/">Home</a></li> |
                             <!--<a href="/about"><li>About</li></a> |-->
-                            <a href="/generate"><li>Generate</li></a>
+                            <li><a href="/generate">Generate</a></li>
                         </ul>
                     </div>
                 </div>

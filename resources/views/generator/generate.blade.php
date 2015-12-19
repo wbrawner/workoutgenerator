@@ -12,17 +12,12 @@
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <legend>Background Info:</legend>
                     <label>What is your primary goal?:</label>
-                    <br />
-                    <br />
                     <select name='goal' required>
                         <option value="" disabled selected>Select Your Goal:</option>
                         <option value="strength">Gain Strength</option>
                         <option value="endurance">Gain Endurance</option>
                         <option value="definition">Gain Definition</option>
                     </select>
-                    <br />
-                    <br />
-                    <br />
 <!--                     <label>Which of the following equipment/exercise styles do you have access to and enjoy doing? Check all that apply:</label>
                     <br />
                     <br />
@@ -41,8 +36,6 @@
                     <br />
                     <br /> -->
                     <label>How long have you consistently followed an exercise routine?</label>
-                    <br />
-                    <br />
                     <select name="years" required>
                         <option value="" disabled selected>Years:</option>
                         <option value="0">0</option>
@@ -57,12 +50,7 @@
                         }
                         ?>
                     </select>
-                    <br />
-                    <br />
-                    <br />
                     <label>How many days would you like to workout this week?</label>
-                    <br />
-                    <br />
                     <select name="frequency" required>
                         <option value="" disabled selected>Days per Week:</option>
                         <?php
@@ -71,8 +59,6 @@
                         }
                         ?>
                     </select>
-                    <br />
-                    <br />
                     <button name="submit" class="home-button">Generate My Workout!</button>
                 </fieldset>
             </form>
